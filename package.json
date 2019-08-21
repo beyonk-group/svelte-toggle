@@ -44,7 +44,11 @@
     "svelte-preprocess": "^2.15.1"
   },
   "keywords": [
-    "svelte"
+    "svelte",
+    "toggle",
+    "beyonk",
+    "checkbox",
+    "boolean"
   ],
   "files": [
     "dist"
