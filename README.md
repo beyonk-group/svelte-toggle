@@ -16,12 +16,28 @@ A toggle component for Svelte.
 
 ## Usage
 
+Basic:
+
 ```
-<Toggle bind:value />
+<Toggle bind:value on:change={someFunction} />
 
 <script>
   import Toggle from '@beyonk/svelte-toggle'
 
   let value = false
+</script>
+```
+
+### Change event
+
+```
+<Toggle bind:value on:change={someFunction} />
+
+<script>
+  import Toggle from '@beyonk/svelte-toggle'
+
+  function someFunction () {
+    console.log('Toggle changed value')
+  }
 </script>
 ```

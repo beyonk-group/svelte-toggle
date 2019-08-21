@@ -7,7 +7,7 @@
    <div class="controls">
     <div class="toggle">
       <label class="toggle-label">
-      	<input class="toggle-input" type="checkbox" bind:checked>
+      	<input class="toggle-input" type="checkbox" bind:checked on:change>
         <span class="toggle-track">
           <span class="toggle-switch"></span>
         </span>
