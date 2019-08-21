@@ -1,6 +1,6 @@
 {
   "name": "@beyonk/svelte-toggle",
-  "svelte": "src/index.svelte",
+  "svelte": "src/Component.svelte",
   "module": "dist/index.mjs",
   "main": "dist/component.min.js",
   "version": "0.1.0",
@@ -51,7 +51,8 @@
     "boolean"
   ],
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "eslintConfig": {
     "extends": "@beyonk",
