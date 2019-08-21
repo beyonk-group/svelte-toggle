@@ -19,19 +19,19 @@ A toggle component for Svelte.
 Basic:
 
 ```
-<Toggle bind:value on:change={someFunction} />
+<Toggle bind:checked on:change={someFunction} />
 
 <script>
   import Toggle from '@beyonk/svelte-toggle'
 
-  let value = false
+  let checked = false
 </script>
 ```
 
 ### Change event
 
 ```
-<Toggle bind:value on:change={someFunction} />
+<Toggle bind:checked on:change={someFunction} />
 
 <script>
   import Toggle from '@beyonk/svelte-toggle'
