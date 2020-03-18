@@ -1,7 +1,7 @@
 <script>
 	export let checked = false
-	export let onLabel = 'Checked'
-  export let offLabel = 'Unchecked'
+	export let onLabel = null
+  export let offLabel = null
   export let disabled = false
   
   export let css = {
@@ -11,25 +11,23 @@
   }
 </script>
 
-<div class="toggle" style="font-size: {css.fontSize}; text-align: {css.align};">
+<div class="toggle" class:disabled style="font-size: {css.fontSize}; text-align: {css.align};">
    <div class="controls">
     <div class="toggle">
-      <label class="toggle-label" class:disabled>
+      <label class="toggle-label">
       	<input class="toggle-input" type="checkbox" bind:checked on:change {disabled}>
         <span class="toggle-track" style={checked ? `background-color: ${css.checkedColor};` : ""}>
           <span class="toggle-switch"></span>
         </span>
+        {#if onLabel && offLabel}
         <span class="toggle-title">{checked ? onLabel : offLabel}</span>
+        {/if}
       </label>
     </div>
    </div>
 </div>
 
 <style>
-	.toggle {
-		margin-bottom: 1em;
-	}
-
   .toggle.disabled {
     pointer-events: none;
   }

@@ -28,6 +28,20 @@ Basic:
 </script>
 ```
 
+## Labels
+
+Specify both on and off labels
+
+```
+<Toggle bind:checked onLabel="Checked" offLabel="Unchecked />
+
+<script>
+  import Toggle from '@beyonk/svelte-toggle'
+
+  let checked = false
+</script>
+```
+
 ### Change event
 
 ```
