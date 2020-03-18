@@ -1,6 +1,7 @@
 <script>
 	export let checked = false
-	export let label = 'Checked'
+	export let onlabel = 'Checked'
+	export let offlabel = 'Unchecked'
 </script>
 
 <div class="toggle">
@@ -11,7 +12,11 @@
         <span class="toggle-track">
           <span class="toggle-switch"></span>
         </span>
-        <span class="toggle-title">{label}</span>
+		{#if checked}
+        	<span class="toggle-title">{onlabel}</span>
+		{:else}
+			<span class="toggle-title">{offlabel}</span>
+		{/if}
       </label>
     </div>
    </div>
@@ -20,7 +25,8 @@
 <style>
 	.toggle {
 		margin-bottom: 1em;
-		font-size: 1rem;
+		font-size: var(--fontsize, 1rem);
+		text-align: var(--align, left);
 	}
 
 	.toggle + .toggle {
@@ -72,7 +78,7 @@
 	}
 
 	.toggle-label .toggle-input:checked ~ .toggle-track {
-		background-color: #bbe572;
+		background-color: var(--bgcolor, #bbe572);
 		border-color: rgba(0, 0, 0, 0.05);
 	}
 
