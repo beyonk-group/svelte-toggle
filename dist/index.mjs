@@ -51,10 +51,22 @@ function set_data(text, data) {
     if (text.data !== data)
         text.data = data;
 }
+function set_style(node, key, value) {
+    node.style.setProperty(key, value);
+}
 
 let current_component;
 function set_current_component(component) {
     current_component = component;
+}
+// TODO figure out if we still want to support
+// shorthand events, or if we want to implement
+// a real bubbling mechanism
+function bubble(component, event) {
+    const callbacks = component.$$.callbacks[event.type];
+    if (callbacks) {
+        callbacks.slice().forEach(fn => fn(event));
+    }
 }
 
 const dirty_components = [];
@@ -230,59 +242,77 @@ class SvelteComponent {
 
 function add_css() {
 	var style = element("style");
-	style.id = 'svelte-ncaqj1-style';
-	style.textContent = ".toggle.svelte-ncaqj1{margin-bottom:1em;font-size:1rem}.toggle+.toggle.svelte-ncaqj1{margin-top:1.25em;padding-top:1em;border-top:1px solid #ddd}.toggle.svelte-ncaqj1{position:relative}.toggle-input.svelte-ncaqj1{border:0;clip:rect(0 0 0 0);height:auto;margin:0;overflow:hidden;padding:0;position:absolute;width:1px;white-space:nowrap}.toggle-label.svelte-ncaqj1{cursor:pointer;position:relative}.toggle-label.svelte-ncaqj1,.toggle-title.svelte-ncaqj1,.toggle-track.svelte-ncaqj1,.toggle-switch.svelte-ncaqj1{display:inline-block;vertical-align:middle}.toggle-title+.toggle-track.svelte-ncaqj1{margin-left:0.375em}.toggle-track.svelte-ncaqj1{position:relative;top:-0.125em;width:2.8125em;height:1.875em;background-color:#eee;border:0.0625em solid rgba(0, 0, 0, 0.15);border-radius:24em;-webkit-transition:0.35s cubic-bezier(0.785, 0.135, 0.15, 0.86);transition:0.35s cubic-bezier(0.785, 0.135, 0.15, 0.86);-webkit-transition-property:background-color, border-color;transition-property:background-color, border-color}.toggle-label .toggle-input:checked~.toggle-track.svelte-ncaqj1{background-color:#bbe572;border-color:rgba(0, 0, 0, 0.05)}.toggle-track+.toggle-title.svelte-ncaqj1{margin-left:0.375em}.toggle-switch.svelte-ncaqj1{position:absolute;top:0;right:0.9375em;bottom:0;left:0;background-color:white;border-radius:24em;box-shadow:1px 1px 6px rgba(0, 0, 0, 0.2), inset 1px 1px 3px rgba(255, 255, 255, 0.8);-webkit-transition:0.35s cubic-bezier(0.785, 0.135, 0.15, 0.86);transition:0.35s cubic-bezier(0.785, 0.135, 0.15, 0.86);-webkit-transition-property:left, right;transition-property:left, right;-webkit-transition-delay:0s, 0.05s;transition-delay:0s, 0.05s}.toggle-label.svelte-ncaqj1:active .toggle-switch.svelte-ncaqj1{box-shadow:1px 1px 6px rgba(0, 0, 0, 0.2), inset 1px 1px 3px rgba(255, 255, 255, 0.8), inset 1px 1px 6px rgba(0, 0, 0, 0.1)}.toggle-label .toggle-input:checked~.toggle-track.svelte-ncaqj1>.toggle-switch.svelte-ncaqj1{right:0;left:0.9375em;-webkit-transition:0.35s cubic-bezier(0.785, 0.135, 0.15, 0.86);transition:0.35s cubic-bezier(0.785, 0.135, 0.15, 0.86);-webkit-transition-property:left, right;transition-property:left, right;-webkit-transition-delay:0.05s, 0s;transition-delay:0.05s, 0s}";
+	style.id = 'svelte-1ejwsk5-style';
+	style.textContent = ".toggle.svelte-1ejwsk5{margin-bottom:1em}.toggle+.toggle.svelte-1ejwsk5{margin-top:1.25em;padding-top:1em;border-top:1px solid #ddd}.toggle.svelte-1ejwsk5{position:relative}.toggle-input.svelte-1ejwsk5{border:0;clip:rect(0 0 0 0);height:auto;margin:0;overflow:hidden;padding:0;position:absolute;width:1px;white-space:nowrap}.toggle-label.svelte-1ejwsk5{cursor:pointer;position:relative}.toggle-label.svelte-1ejwsk5,.toggle-title.svelte-1ejwsk5,.toggle-track.svelte-1ejwsk5,.toggle-switch.svelte-1ejwsk5{display:inline-block;vertical-align:middle}.toggle-title+.toggle-track.svelte-1ejwsk5{margin-left:0.375em}.toggle-track.svelte-1ejwsk5{position:relative;top:-0.125em;width:2.8125em;height:1.875em;background-color:#eee;border:0.0625em solid rgba(0, 0, 0, 0.15);border-radius:24em;-webkit-transition:0.35s cubic-bezier(0.785, 0.135, 0.15, 0.86);transition:0.35s cubic-bezier(0.785, 0.135, 0.15, 0.86);-webkit-transition-property:background-color, border-color;transition-property:background-color, border-color}.toggle-label .toggle-input:checked~.toggle-track.svelte-1ejwsk5{border-color:rgba(0, 0, 0, 0.05)}.toggle-track+.toggle-title.svelte-1ejwsk5{margin-left:0.375em}.toggle-switch.svelte-1ejwsk5{position:absolute;top:0;right:0.9375em;bottom:0;left:0;background-color:white;border-radius:24em;box-shadow:1px 1px 6px rgba(0, 0, 0, 0.2), inset 1px 1px 3px rgba(255, 255, 255, 0.8);-webkit-transition:0.35s cubic-bezier(0.785, 0.135, 0.15, 0.86);transition:0.35s cubic-bezier(0.785, 0.135, 0.15, 0.86);-webkit-transition-property:left, right;transition-property:left, right;-webkit-transition-delay:0s, 0.05s;transition-delay:0s, 0.05s}.toggle-label.svelte-1ejwsk5:active .toggle-switch.svelte-1ejwsk5{box-shadow:1px 1px 6px rgba(0, 0, 0, 0.2), inset 1px 1px 3px rgba(255, 255, 255, 0.8), inset 1px 1px 6px rgba(0, 0, 0, 0.1)}.toggle-label .toggle-input:checked~.toggle-track.svelte-1ejwsk5>.toggle-switch.svelte-1ejwsk5{right:0;left:0.9375em;-webkit-transition:0.35s cubic-bezier(0.785, 0.135, 0.15, 0.86);transition:0.35s cubic-bezier(0.785, 0.135, 0.15, 0.86);-webkit-transition-property:left, right;transition-property:left, right;-webkit-transition-delay:0.05s, 0s;transition-delay:0.05s, 0s}";
 	append(document.head, style);
 }
 
 function create_fragment(ctx) {
-	var div2, div1, div0, label_1, input, t0, span1, t1, span2, t2, dispose;
+	var div2, div1, div0, label, input, t0, span1, span0, span1_style_value, t1, span2, t2_value = ctx.checked ? ctx.onLabel : ctx.offLabel + "", t2, dispose;
 
 	return {
 		c() {
 			div2 = element("div");
 			div1 = element("div");
 			div0 = element("div");
-			label_1 = element("label");
+			label = element("label");
 			input = element("input");
 			t0 = space();
 			span1 = element("span");
-			span1.innerHTML = `<span class="toggle-switch svelte-ncaqj1"></span>`;
+			span0 = element("span");
 			t1 = space();
 			span2 = element("span");
-			t2 = text(ctx.label);
-			attr(input, "class", "toggle-input svelte-ncaqj1");
+			t2 = text(t2_value);
+			attr(input, "class", "toggle-input svelte-1ejwsk5");
 			attr(input, "type", "checkbox");
-			attr(span1, "class", "toggle-track svelte-ncaqj1");
-			attr(span2, "class", "toggle-title svelte-ncaqj1");
-			attr(label_1, "class", "toggle-label svelte-ncaqj1");
-			attr(div0, "class", "toggle svelte-ncaqj1");
+			attr(span0, "class", "toggle-switch svelte-1ejwsk5");
+			attr(span1, "class", "toggle-track svelte-1ejwsk5");
+			attr(span1, "style", span1_style_value = ctx.checked ? `background-color: ${ctx.css.checkedColor};` : "");
+			attr(span2, "class", "toggle-title svelte-1ejwsk5");
+			attr(label, "class", "toggle-label svelte-1ejwsk5");
+			attr(div0, "class", "toggle svelte-1ejwsk5");
 			attr(div1, "class", "controls");
-			attr(div2, "class", "toggle svelte-ncaqj1");
-			dispose = listen(input, "change", ctx.input_change_handler);
+			attr(div2, "class", "toggle svelte-1ejwsk5");
+			set_style(div2, "font-size", ctx.css.fontSize);
+			set_style(div2, "text-align", ctx.css.align);
+
+			dispose = [
+				listen(input, "change", ctx.input_change_handler),
+				listen(input, "change", ctx.change_handler)
+			];
 		},
 
 		m(target, anchor) {
 			insert(target, div2, anchor);
 			append(div2, div1);
 			append(div1, div0);
-			append(div0, label_1);
-			append(label_1, input);
+			append(div0, label);
+			append(label, input);
 
 			input.checked = ctx.checked;
 
-			append(label_1, t0);
-			append(label_1, span1);
-			append(label_1, t1);
-			append(label_1, span2);
+			append(label, t0);
+			append(label, span1);
+			append(span1, span0);
+			append(label, t1);
+			append(label, span2);
 			append(span2, t2);
 		},
 
 		p(changed, ctx) {
 			if (changed.checked) input.checked = ctx.checked;
 
-			if (changed.label) {
-				set_data(t2, ctx.label);
+			if ((changed.checked || changed.css) && span1_style_value !== (span1_style_value = ctx.checked ? `background-color: ${ctx.css.checkedColor};` : "")) {
+				attr(span1, "style", span1_style_value);
+			}
+
+			if ((changed.checked || changed.onLabel || changed.offLabel) && t2_value !== (t2_value = ctx.checked ? ctx.onLabel : ctx.offLabel + "")) {
+				set_data(t2, t2_value);
+			}
+
+			if (changed.css) {
+				set_style(div2, "font-size", ctx.css.fontSize);
+				set_style(div2, "text-align", ctx.css.align);
 			}
 		},
 
@@ -294,13 +324,21 @@ function create_fragment(ctx) {
 				detach(div2);
 			}
 
-			dispose();
+			run_all(dispose);
 		}
 	};
 }
 
 function instance($$self, $$props, $$invalidate) {
-	let { checked = false, label = 'Checked' } = $$props;
+	let { checked = false, onLabel = 'Checked', offLabel = 'Unchecked', css = {
+    fontSize: '1rem',
+    align: 'left',
+    checkedColor: '#bbe572'
+  } } = $$props;
+
+	function change_handler(event) {
+		bubble($$self, event);
+	}
 
 	function input_change_handler() {
 		checked = this.checked;
@@ -309,17 +347,26 @@ function instance($$self, $$props, $$invalidate) {
 
 	$$self.$set = $$props => {
 		if ('checked' in $$props) $$invalidate('checked', checked = $$props.checked);
-		if ('label' in $$props) $$invalidate('label', label = $$props.label);
+		if ('onLabel' in $$props) $$invalidate('onLabel', onLabel = $$props.onLabel);
+		if ('offLabel' in $$props) $$invalidate('offLabel', offLabel = $$props.offLabel);
+		if ('css' in $$props) $$invalidate('css', css = $$props.css);
 	};
 
-	return { checked, label, input_change_handler };
+	return {
+		checked,
+		onLabel,
+		offLabel,
+		css,
+		change_handler,
+		input_change_handler
+	};
 }
 
 class Component extends SvelteComponent {
 	constructor(options) {
 		super();
-		if (!document.getElementById("svelte-ncaqj1-style")) add_css();
-		init(this, options, instance, create_fragment, safe_not_equal, ["checked", "label"]);
+		if (!document.getElementById("svelte-1ejwsk5-style")) add_css();
+		init(this, options, instance, create_fragment, safe_not_equal, ["checked", "onLabel", "offLabel", "css"]);
 	}
 }
 

@@ -41,3 +41,18 @@ Basic:
   }
 </script>
 ```
+
+### Styling
+
+You can pass in some custom styling:
+
+
+```
+  const css = {
+    fontSize: '1rem',
+    align: 'left',
+    checkedColor: '#bbe572'
+  }
+
+  <Toggle bind:checked {css} />
+```

@@ -1,22 +1,24 @@
 <script>
 	export let checked = false
-	export let onlabel = 'Checked'
-	export let offlabel = 'Unchecked'
+	export let onLabel = 'Checked'
+  export let offLabel = 'Unchecked'
+  
+  export let css = {
+    fontSize: '1rem',
+    align: 'left',
+    checkedColor: '#bbe572'
+  }
 </script>
 
-<div class="toggle">
+<div class="toggle" style="font-size: {css.fontSize}; text-align: {css.align}">
    <div class="controls">
     <div class="toggle">
       <label class="toggle-label">
       	<input class="toggle-input" type="checkbox" bind:checked on:change>
-        <span class="toggle-track">
+        <span class="toggle-track" style={checked ? `background-color: ${css.checkedColor};` : ""}>
           <span class="toggle-switch"></span>
         </span>
-		{#if checked}
-        	<span class="toggle-title">{onlabel}</span>
-		{:else}
-			<span class="toggle-title">{offlabel}</span>
-		{/if}
+        <span class="toggle-title">{checked ? onLabel : offLabel}</span>
       </label>
     </div>
    </div>
@@ -25,8 +27,6 @@
 <style>
 	.toggle {
 		margin-bottom: 1em;
-		font-size: var(--fontsize, 1rem);
-		text-align: var(--align, left);
 	}
 
 	.toggle + .toggle {
@@ -78,7 +78,6 @@
 	}
 
 	.toggle-label .toggle-input:checked ~ .toggle-track {
-		background-color: var(--bgcolor, #bbe572);
 		border-color: rgba(0, 0, 0, 0.05);
 	}
 
