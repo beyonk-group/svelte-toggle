@@ -40,8 +40,8 @@
     "rollup-plugin-svelte": "^5.0.0",
     "rollup-plugin-terser": "^5.1.1",
     "sass": "^1.22.10",
-    "svelte": "^3.8.0",
-    "svelte-preprocess": "^2.15.1"
+    "svelte": "^3.20.1",
+    "svelte-preprocess": "^3.5.0"
   },
   "keywords": [
     "svelte",
