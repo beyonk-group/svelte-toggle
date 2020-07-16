@@ -16,13 +16,15 @@
 
 	let allStyle = `font-size: ${css.fontSize}; text-align: ${css.align};`
 	if (css.border_top)
-		allStyle += `border-top: ${css.border_top}`;
+		allStyle += `border-top: ${css.border_top};`;
 	if (css.border_bottom)
-		allStyle += `border-bottom: ${css.border_bottom}`;
+		allStyle += `border-bottom: ${css.border_bottom};`;
 	if (css.padding_top)
-		allStyle += `padding-top: ${css.padding_top}`;
+		allStyle += `padding-top: ${css.padding_top};`;
 	if (css.padding_bottom)
-		allStyle += `padding-bottom: ${css.padding_bottom}`;
+		allStyle += `padding-bottom: ${css.padding_bottom};`;
+
+	console.log(allStyle);
 </script>
 
 <div class="toggle" class:disabled style={allStyle}>
