@@ -1,17 +1,31 @@
 <script>
 	export let checked = false
 	export let onLabel = null
-  export let offLabel = null
-  export let disabled = false
+	export let offLabel = null
+	export let disabled = false
   
-  export let css = {
-    fontSize: '1rem',
-    align: 'left',
-    checkedColor: '#bbe572'
-  }
+	export let css = {
+		fontSize: '1rem',
+		align: 'left',
+		checkedColor: '#bbe572',
+		border_top: "1px solid #ddd",
+		border_bottom: false,
+		padding_top: '1em',
+		padding_bottom: false
+	}
+
+	let style = `font-size: ${css.fontSize}; text-align: ${css.align};`
+	if (border_top)
+		style += `border-top: ${border_top}`;
+	if (border_bottom)
+		style += `border-bottom: ${border_bottom}`;
+	if (padding_top)
+		style += `padding-top: ${padding_top}`;
+	if (padding_bottom)
+		style += `padding-bottom: ${padding_bottom}`;
 </script>
 
-<div class="toggle" class:disabled style="font-size: {css.fontSize}; text-align: {css.align};">
+<div class="toggle" class:disabled style=style>
    <div class="controls">
     <div class="toggle">
       <label class="toggle-label">
