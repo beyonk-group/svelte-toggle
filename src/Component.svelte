@@ -8,26 +8,17 @@
 		fontSize: '1rem',
 		align: 'left',
 		checkedColor: '#bbe572',
-		border_top: "1px solid #ddd",
-		border_bottom: false,
-		padding_top: '1em',
-		padding_bottom: false
+		borderTop: "1px solid #ddd",
+		borderBottom: 'none',
+		paddingTop: '1em',
+		paddingBottom: 'none'
 	}
 
-	let allStyle = `font-size: ${css.fontSize}; text-align: ${css.align};`
-	if (css.border_top)
-		allStyle += `border-top: ${css.border_top};`;
-	if (css.border_bottom)
-		allStyle += `border-bottom: ${css.border_bottom};`;
-	if (css.padding_top)
-		allStyle += `padding-top: ${css.padding_top};`;
-	if (css.padding_bottom)
-		allStyle += `padding-bottom: ${css.padding_bottom};`;
-
-	console.log(allStyle);
 </script>
 
-<div class="toggle" class:disabled style={allStyle}>
+<div class="toggle" class:disabled style="font-size: {css.fontSize}; text-align: {css.align}; 
+										  border-top: {css.borderTop}; border-bottom: {css.borderBottom};
+										  padding-top: {css.paddingTop}; padding-bottom: {css.paddingBottom};">
    <div class="controls">
     <div class="toggle">
       <label class="toggle-label">
