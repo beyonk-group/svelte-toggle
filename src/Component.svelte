@@ -14,18 +14,18 @@
 		padding_bottom: false
 	}
 
-	let style = `font-size: ${css.fontSize}; text-align: ${css.align};`
+	let allStyle = `font-size: ${css.fontSize}; text-align: ${css.align};`
 	if (css.border_top)
-		style += `border-top: ${css.border_top}`;
+		allStyle += `border-top: ${css.border_top}`;
 	if (css.border_bottom)
-		style += `border-bottom: ${css.border_bottom}`;
+		allStyle += `border-bottom: ${css.border_bottom}`;
 	if (css.padding_top)
-		style += `padding-top: ${css.padding_top}`;
+		allStyle += `padding-top: ${css.padding_top}`;
 	if (css.padding_bottom)
-		style += `padding-bottom: ${css.padding_bottom}`;
+		allStyle += `padding-bottom: ${css.padding_bottom}`;
 </script>
 
-<div class="toggle" class:disabled style=style>
+<div class="toggle" class:disabled style={allStyle}>
    <div class="controls">
     <div class="toggle">
       <label class="toggle-label">
