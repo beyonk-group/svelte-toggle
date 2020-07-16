@@ -11,14 +11,17 @@
 		borderTop: "1px solid #ddd",
 		borderBottom: 'none',
 		paddingTop: '1em',
-		paddingBottom: 'none'
+		paddingBottom: 'none',
+		marginTop: '1.25em',
+		marginBottom: 'none'
 	}
 
 </script>
 
 <div class="toggle" class:disabled style="font-size: {css.fontSize}; text-align: {css.align}; 
-										  border-top: {css.borderTop}; border-bottom: {css.borderBottom};
-										  padding-top: {css.paddingTop}; padding-bottom: {css.paddingBottom};">
+									border-top: {css.borderTop}; border-bottom: {css.borderBottom};
+									padding-top: {css.paddingTop}; padding-bottom: {css.paddingBottom};
+									margin-top: {css.marginTop}; margin-bottom: {css.marginBottom};">
    <div class="controls">
     <div class="toggle">
       <label class="toggle-label">
@@ -38,12 +41,6 @@
   .toggle.disabled {
     pointer-events: none;
   }
-
-	.toggle + .toggle {
-		margin-top: 1.25em;
-		padding-top: 1em;
-		border-top: 1px solid #ddd;
-	}
 
 	.toggle {
 		position: relative;
