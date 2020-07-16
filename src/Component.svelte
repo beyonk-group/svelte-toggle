@@ -15,14 +15,14 @@
 	}
 
 	let style = `font-size: ${css.fontSize}; text-align: ${css.align};`
-	if (border_top)
-		style += `border-top: ${border_top}`;
-	if (border_bottom)
-		style += `border-bottom: ${border_bottom}`;
-	if (padding_top)
-		style += `padding-top: ${padding_top}`;
-	if (padding_bottom)
-		style += `padding-bottom: ${padding_bottom}`;
+	if (css.border_top)
+		style += `border-top: ${css.border_top}`;
+	if (css.border_bottom)
+		style += `border-bottom: ${css.border_bottom}`;
+	if (css.padding_top)
+		style += `padding-top: ${css.padding_top}`;
+	if (css.padding_bottom)
+		style += `padding-bottom: ${css.padding_bottom}`;
 </script>
 
 <div class="toggle" class:disabled style=style>
