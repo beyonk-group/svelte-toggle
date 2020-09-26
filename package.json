@@ -17,7 +17,7 @@
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
-    "@beyonk/eslint-config": "^4.0.1",
+    "@beyonk/eslint-config": "^4.2.0",
     "@hapi/code": "^6.0.0",
     "@testing-library/dom": "^5.6.1",
     "@testing-library/jest-dom": "^4.0.0",
@@ -25,6 +25,7 @@
     "autoprefixer": "^9.6.1",
     "dayjs": "^1.8.15",
     "eslint": "^6.1.0",
+    "eslint-plugin-svelte3": "^2.7.3",
     "esm": "^3.2.25",
     "jest": "^24.8.0",
     "jest-transform-svelte": "^2.0.2",
@@ -55,7 +56,7 @@
     "src"
   ],
   "eslintConfig": {
-    "extends": "@beyonk",
+    "extends": "@beyonk/eslint-config/svelte",
     "plugins": [
       "mocha"
     ],

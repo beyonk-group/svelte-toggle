@@ -4,15 +4,15 @@
 	export let offLabel = null
 	export let disabled = false
 
-	export let fontSize = '1rem';
-	export let align = 'left';
-	export let checkedColor = '#bbe572';
-	export let borderTop = "1px solid #ddd";
-	export let borderBottom = 'none';
-	export let paddingTop = '1em';
-	export let paddingBottom = 'none';
-	export let marginTop = '1.25em';
-	export let marginBottom = 'none';
+	export let fontSize = '1rem'
+	export let align = 'left'
+	export let checkedColor = '#bbe572'
+	export let borderTop = '1px solid #ddd'
+	export let borderBottom = 'none'
+	export let paddingTop = '1em'
+	export let paddingBottom = 'none'
+	export let marginTop = '1.25em'
+	export let marginBottom = 'none'
 
 </script>
 
@@ -24,7 +24,7 @@
     <div class="toggle">
       <label class="toggle-label">
       	<input class="toggle-input" type="checkbox" bind:checked on:change {disabled}>
-        <span class="toggle-track" style={checked ? `background-color: ${checkedColor};` : ""}>
+        <span class="toggle-track" style={checked ? `background-color: ${checkedColor};` : ''}>
           <span class="toggle-switch"></span>
         </span>
         {#if onLabel && offLabel}
