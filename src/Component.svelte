@@ -1,22 +1,30 @@
 <script>
 	export let checked = false
 	export let onLabel = null
-  export let offLabel = null
-  export let disabled = false
-  
-  export let css = {
-    fontSize: '1rem',
-    align: 'left',
-    checkedColor: '#bbe572'
-  }
+	export let offLabel = null
+	export let disabled = false
+
+	export let fontSize = '1rem';
+	export let align = 'left';
+	export let checkedColor = '#bbe572';
+	export let borderTop = "1px solid #ddd";
+	export let borderBottom = 'none';
+	export let paddingTop = '1em';
+	export let paddingBottom = 'none';
+	export let marginTop = '1.25em';
+	export let marginBottom = 'none';
+
 </script>
 
-<div class="toggle" class:disabled style="font-size: {css.fontSize}; text-align: {css.align};">
+<div class="toggle" class:disabled style="font-size: {fontSize}; text-align: {align}; 
+									border-top: {borderTop}; border-bottom: {borderBottom};
+									padding-top: {paddingTop}; padding-bottom: {paddingBottom};
+									margin-top: {marginTop}; margin-bottom: {marginBottom};">
    <div class="controls">
     <div class="toggle">
       <label class="toggle-label">
       	<input class="toggle-input" type="checkbox" bind:checked on:change {disabled}>
-        <span class="toggle-track" style={checked ? `background-color: ${css.checkedColor};` : ""}>
+        <span class="toggle-track" style={checked ? `background-color: ${checkedColor};` : ""}>
           <span class="toggle-switch"></span>
         </span>
         {#if onLabel && offLabel}
@@ -31,12 +39,6 @@
   .toggle.disabled {
     pointer-events: none;
   }
-
-	.toggle + .toggle {
-		margin-top: 1.25em;
-		padding-top: 1em;
-		border-top: 1px solid #ddd;
-	}
 
 	.toggle {
 		position: relative;
