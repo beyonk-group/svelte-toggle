@@ -7,7 +7,7 @@
 	export let fontSize = '1rem'
 	export let align = 'left'
 	export let checkedColor = '#bbe572'
-	export let borderTop = '1px solid #ddd'
+	export let borderTop = 'none'
 	export let borderBottom = 'none'
 	export let paddingTop = '1em'
 	export let paddingBottom = 'none'
