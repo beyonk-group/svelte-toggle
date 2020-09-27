@@ -9,8 +9,8 @@
 	export let checkedColor = '#bbe572'
 	export let borderTop = 'none'
 	export let borderBottom = 'none'
-	export let padding = '1em 0 0 0'
-	export let margin = '1.25em 0 0 0'
+	export let padding = '0'
+	export let margin = '0'
 </script>
 
 <div class="toggle" class:disabled style="font-size: {fontSize}; text-align: {align}; 
