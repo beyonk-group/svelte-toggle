@@ -1,15 +1,15 @@
 import svelte from 'rollup-plugin-svelte'
-import resolve from 'rollup-plugin-node-resolve'
+import resolve from '@rollup/plugin-node-resolve'
 import browsersync from "rollup-plugin-browsersync"
 import { terser } from 'rollup-plugin-terser'
-import commonjs from 'rollup-plugin-commonjs'
+import commonjs from '@rollup/plugin-commonjs'
 import pkg from './package.json'
 import sveltePreprocess from 'svelte-preprocess'
 import postcss from 'rollup-plugin-postcss'
 
 const watch = process.env.WATCH
 const mainpath = watch ? 'docs/index.js': pkg.main
-const dedupe = importee => importee === 'svelte' || importee.startsWith('svelte/')
+const dedupe = [ 'svelte' ]
 
 const scssOptions = {
   transformers: {
