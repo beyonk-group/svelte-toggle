@@ -66,10 +66,6 @@
 		vertical-align: middle;
 	}
 
-	.toggle-title + .toggle-track {
-		margin-left: 0.375em;
-	}
-
 	.toggle-track {
 		position: relative;
 		top: -0.125em;
