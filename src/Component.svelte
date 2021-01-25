@@ -7,19 +7,15 @@
 	export let fontSize = '1rem'
 	export let align = 'left'
 	export let checkedColor = '#bbe572'
-	export let borderTop = '1px solid #ddd'
+	export let borderTop = 'none'
 	export let borderBottom = 'none'
-	export let paddingTop = '1em'
-	export let paddingBottom = 'none'
-	export let marginTop = '1.25em'
-	export let marginBottom = 'none'
-
+	export let padding = '0'
+	export let margin = '0'
 </script>
 
 <div class="toggle" class:disabled style="font-size: {fontSize}; text-align: {align}; 
 									border-top: {borderTop}; border-bottom: {borderBottom};
-									padding-top: {paddingTop}; padding-bottom: {paddingBottom};
-									margin-top: {marginTop}; margin-bottom: {marginBottom};">
+									padding: {padding}; margin: {margin}">
    <div class="controls">
     <div class="toggle">
       <label class="toggle-label">
