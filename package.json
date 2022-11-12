@@ -33,7 +33,7 @@
     "jsdom": "^15.1.1",
     "jsdom-global": "^3.0.2",
     "mocha": "^6.2.0",
-    "postcss": "^7.0.17",
+    "postcss": "^7.0.36",
     "rollup": "^2.36.2",
     "rollup-plugin-browsersync": "^1.0.0",
     "rollup-plugin-commonjs": "^10.0.2",
